@@ -9,10 +9,11 @@ import { JokesService } from '../services/jokes.service';
 export class DetalharPage implements OnInit {
 
   constructor(private jokesService: JokesService) { }
-  piadaSelecionada = this.jokesService.piadaSelecionada;
+  piadaSelecionada: any;
 
   ngOnInit() {
     // console.log(this.jokesService.piadaSelecionada);
+    this.piadaSelecionada  = this.jokesService.piadaSelecionada; 
   }
 
 }
