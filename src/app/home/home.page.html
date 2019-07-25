@@ -1,14 +1,24 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Piadas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+  <img height="100" [src]="url" alt="">
+
+  <ion-button (click)="showJoke()" color="success" expand="full">Exibir piada show!</ion-button>
+  <h1>{{ piada?.pergunta}}</h1>
+  <h3> <span style="color: red">Resposta:</span> {{ piada?.resposta}}</h3>
+  
+  <ion-input [(ngModel)]="partePiada" placeholder="Digite parte da piada!"></ion-input>
+  <ion-button [disabled]="!partePiada" (click)="pesquisarPiada()" color="success" expand="full">Pesquisar</ion-button>
+  
+  <div *ngFor="let piada of piadasPesquisadas">
+    <p><b>Pergunta:</b>{{ piada.pergunta}}</p>
+    <p><b>Resposta:</b>{{ piada.resposta}}</p>
   </div>
-</ion-content>
+  </ion-content>
