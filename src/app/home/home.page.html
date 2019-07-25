@@ -18,7 +18,9 @@
   <ion-button [disabled]="!partePiada" (click)="pesquisarPiada()" color="success" expand="full">Pesquisar</ion-button>
   
   <div *ngFor="let piada of piadasPesquisadas">
-    <p><b>Pergunta:</b>{{ piada.pergunta}}</p>
-    <p><b>Resposta:</b>{{ piada.resposta}}</p>
+    <p>
+      <a (click)="prepareDetail(piada)" [routerLink]="['/detalhar']" ><b>Pergunta: </b>{{ piada.pergunta}}</a>
+    </p>
+    
   </div>
   </ion-content>

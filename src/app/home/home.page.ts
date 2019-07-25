@@ -42,13 +42,17 @@ export class HomePage {
   pesquisarPiada(){
     
     this.piadasPesquisadas = this.piadas.filter((piada) => {
-      if(piada.pergunta.toLowerCase().indexOf(this.partePiada.toLowerCase()) > -1){
+      if(piada.pergunta.toLowerCase().match(this.partePiada.toLowerCase())){
         return piada;
       }
-      else if(piada.resposta.toLowerCase().indexOf(this.partePiada.toLowerCase()) > -1){
+      else if(piada.resposta.toLowerCase().match(this.partePiada.toLowerCase())){
         return piada;
       }
     })
+  }
+
+  prepareDetail(piada: any) {
+    this.jokesService.piadaSelecionada = piada;
   }
 
 }
